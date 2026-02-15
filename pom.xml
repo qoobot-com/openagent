@@ -109,7 +109,10 @@
 
         <!-- Spring AI 版本 -->
         <spring-ai.version>1.0.0-M5</spring-ai.version>
-        <spring-ai-alibaba.version>1.0.0-M5.2</spring-ai-alibaba.version>
+        <spring-ai-alibaba.version>1.0.0-M5.1</spring-ai-alibaba.version>
+
+        <!-- LangChain4J 版本 -->
+        <langchain4j.version>0.34.0</langchain4j.version>
 
         <!-- Spring 相关版本 -->
         <spring-authorization-server.version>1.3.0</spring-authorization-server.version>
@@ -118,7 +121,7 @@
         <!-- 数据库驱动 -->
         <mysql.version>8.4.0</mysql.version>
         <postgresql.version>42.7.4</postgresql.version>
-        <pgvector.version>0.1.4-repackaged</pgvector.version>
+        <pgvector.version>0.1.4</pgvector.version>
         <hikaricp.version>6.3.3</hikaricp.version>
         <mybatis-plus.version>3.5.7</mybatis-plus.version>
         <!-- JSON 处理 -->
@@ -174,7 +177,27 @@
                 <scope>import</scope>
             </dependency>
 
+            <!-- Spring AI BOM -->
+            <dependency>
+                <groupId>org.springframework.ai</groupId>
+                <artifactId>spring-ai-bom</artifactId>
+                <version>${spring-ai.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
 
+            <!-- LangChain4J -->
+            <dependency>
+                <groupId>dev.langchain4j</groupId>
+                <artifactId>langchain4j</artifactId>
+                <version>${langchain4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>dev.langchain4j</groupId>
+                <artifactId>langchain4j-open-ai</artifactId>
+                <version>${langchain4j.version}</version>
+            </dependency>
 
             <!-- 数据库驱动 -->
             <dependency>
@@ -301,24 +324,6 @@
                 <groupId>org.springdoc</groupId>
                 <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
                 <version>2.3.0</version>
-            </dependency>
-
-            <!-- Spring AI BOM -->
-            <dependency>
-                <groupId>org.springframework.ai</groupId>
-                <artifactId>spring-ai-bom</artifactId>
-                <version>${spring-ai.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
-            <!-- Spring AI Alibaba -->
-            <dependency>
-                <groupId>com.alibaba.cloud.ai</groupId>
-                <artifactId>spring-ai-alibaba-bom</artifactId>
-                <version>${spring-ai-alibaba.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
             </dependency>
 
             <!-- 测试 -->

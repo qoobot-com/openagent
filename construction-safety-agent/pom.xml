@@ -7,8 +7,9 @@
 
     <parent>
         <groupId>com.qoobot</groupId>
-        <artifactId>agent-systems</artifactId>
+        <artifactId>openagent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>construction-safety-agent</artifactId>
