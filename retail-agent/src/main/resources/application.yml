@@ -1,0 +1,88 @@
+server:
+  port: 8203
+  servlet:
+    context-path: /retail-agent
+
+spring:
+  application:
+    name: retail-agent
+
+  # 数据源配置
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/openagent_retail_agent
+    username: postgres
+    password: 123456
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+
+  # Redis配置
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password:
+      database: 15
+
+  # Kafka配置
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: retail-agent-group
+      auto-offset-reset: earliest
+
+# MyBatis Plus配置
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# Agent配置
+agent:
+  id: retail-agent
+  name: 零售电商智能体
+  description: 专注于智能推荐、用户画像、库存管理的AI智能体
+
+  # 模型配置
+  model:
+    provider: spring-ai
+    chat-model: gpt-4o-mini
+    embedding-model: text-embedding-3-small
+
+  # 工具配置
+  tools:
+    enabled: true
+    timeout: 30s
+
+  # 向量配置
+  vector:
+    enabled: true
+    dimension: 1536
+    index-type: ivfflat
+    metric-type: cosine
+    index-lists: 100
+
+# SpringDoc配置
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+
+# 监控配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+# 日志配置
+logging:
+  level:
+    root: INFO
+    com.qoobot: DEBUG
